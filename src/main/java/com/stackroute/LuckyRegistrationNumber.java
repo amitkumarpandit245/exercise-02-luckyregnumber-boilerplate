@@ -7,23 +7,29 @@ public class LuckyRegistrationNumber {
 
    
     public static int checkRegistrationNumber(String regNumber) {
+    	if(regNumber==null){
+    		return -1;
+    	}
     	int result;
     	String state=regNumber.substring(0,2);
     	int number=Integer.parseInt(regNumber.substring(2,4));
     	int ac=0;
+    	int luckyNum1;
     	if(regNumber.length()<10){
+    		luckyNum1=Integer.parseInt(regNumber.substring(5,9));
     		String alphabet=regNumber.substring(4,5);
     		if(alphabet.charAt(0)>=65 && alphabet.charAt(0)<=90){
     			ac=1;
     		}
     	}else{
+    		luckyNum1=Integer.parseInt(regNumber.substring(6,10));
     		String alphabet=regNumber.substring(4,6);
        		if((alphabet.charAt(0)>=65 && alphabet.charAt(0)<=90) && (alphabet.charAt(1)>=65 && alphabet.charAt(1)<=90)){
     			ac=1;
     		}
     	}
     	
-    	int luckyNum1=Integer.parseInt(regNumber.substring(6,10));
+    	
     	int luckyNum=luckyNum1;
     	int sumLuckyNum=0;
     	while(luckyNum>0){
